@@ -1,0 +1,21 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Coverage directory
+coverage
+
+# Dependency directory
+node_modules
+
+# build directory
+dist
+
+# mac directories
+.DS_Store
+
+# Runtime data
+pids
+*.pid
+*.seed
