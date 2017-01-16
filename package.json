@@ -9,9 +9,7 @@
     "build:watch": "tsc --watch",
     "lint": "tslint src/**/*",
     "pretest": "npm run build",
-    "test": "npm run test:only --",
-    "test:watch": "npm test -- -w",
-    "test:only": "lab  -c -S ./dist/test",
+    "test": "lab -S ./dist/test",
     "coverage": "lab -c -S -r console -o stdout -r html -o ./coverage/coverage.html ./dist/test"
   },
   "keywords": [

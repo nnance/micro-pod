@@ -37,7 +37,7 @@ class Orchestrator {
   }
 
   private installServices(config: IConfiguration): Promise<Port[]> {
-    return Promise.all(config.services.map(this.addService.bind(this)))
+    return Promise.all(config.services.map((service) => this.addService(service)))
   }
 }
 

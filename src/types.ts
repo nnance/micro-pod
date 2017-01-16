@@ -1,23 +1,26 @@
-export type Port = String
-export type ResultCode = String
+export type Port = string
+export type ResultCode = string
 
-export type IConfigChanged = (IConfiguration) => void
-export type IServiceAdded = (IService) => void
-export type IServiceRemoved = (IService) => void
+export type ConfigChanged = (IConfiguration) => void
+export type ServiceAdded = (IService) => void
+export type ServiceRemoved = (IService) => void
+
+export type Handler = ServiceAdded | ConfigChanged | ServiceRemoved
+export enum HandlerType {ServiceAdded, ConfigChanged, ServiceRemoved}
 
 export interface INodeEnv {
-  readonly variable: String
-  readonly value: String
+  readonly variable: string
+  readonly value: string
 }
 
 export interface IRoute {
-  readonly path: String
-  readonly rewrite?: String[]
+  readonly path: string
+  readonly rewrite?: string[]
 }
 
 export interface IService {
-  readonly name: String
-  readonly path: String
+  readonly name: string
+  readonly path: string
   readonly env?: INodeEnv[]
   readonly routes: IRoute[]
   port?: Port
@@ -29,9 +32,9 @@ export interface IConfiguration {
 
 export interface IServiceRepository {
   load(): Promise<IConfiguration>
-  onConfigChanged(handler: IConfigChanged)
-  onServiceAdded(handler: IServiceAdded)
-  onServiceRemoved(handler: IServiceRemoved)
+  onConfigChanged(handler: ConfigChanged): Handler[]
+  onServiceAdded(handler: ServiceAdded): Handler[]
+  onServiceRemoved(handler: ServiceRemoved): Handler[]
 }
 
 export interface IServiceInstaller {
