@@ -11,10 +11,10 @@ import {
 } from '../types'
 
 import {EventEmitter} from 'events'
+import {BaseRepository} from './BaseRepository'
 
-export class MemoryRepository implements IServiceRepository {
+export class MemoryRepository extends BaseRepository {
 
-  private handlers = {}
   private config: IConfiguration = {
     services: [
       {
@@ -26,6 +26,7 @@ export class MemoryRepository implements IServiceRepository {
   }
 
   constructor(repo?: EventEmitter) {
+    super()
     if (repo) {
       repo.on('added', () => this.triggerEvent(HandlerType.ServiceAdded))
     }
@@ -45,18 +46,5 @@ export class MemoryRepository implements IServiceRepository {
 
   public onServiceRemoved(handler: ServiceRemoved): Handler[] {
     return this.addEventHandler(HandlerType.ServiceRemoved, handler)
-  }
-
-  private addEventHandler(type: HandlerType, handler: Handler) {
-    if (this.handlers[type]) {
-      this.handlers[type].push(handler)
-    } else {
-      this.handlers[type] = [handler]
-    }
-    return this.handlers[type]
-  }
-
-  private triggerEvent(type: HandlerType) {
-    this.handlers[type].forEach((handler) => handler())
   }
 }
