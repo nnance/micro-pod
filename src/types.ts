@@ -21,6 +21,7 @@ export interface IRoute {
 export interface IService {
   readonly name: string
   readonly path: string
+  readonly module?: string
   readonly env?: INodeEnv[]
   readonly routes: IRoute[]
   port?: Port

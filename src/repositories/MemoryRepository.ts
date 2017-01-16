@@ -18,8 +18,9 @@ export class MemoryRepository extends BaseRepository {
   private config: IConfiguration = {
     services: [
       {
-        name: 'Foo',
-        path: '/foo/',
+        module: 'graphql-server-micro',
+        name: 'GraphQL',
+        path: './node_modules/graphql-server-micro/dist/index.js',
         routes: [ { path: '/' } ],
       },
     ],
