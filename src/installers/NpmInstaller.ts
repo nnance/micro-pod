@@ -6,6 +6,7 @@ export class NpmInstaller implements IServiceInstaller {
     return new Promise(async (resolve, reject) => {
       const port = await getPort()
       console.log(`installed service ${service.name} at ${port}`)
+      resolve()
     })
   }
 

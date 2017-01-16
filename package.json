@@ -19,6 +19,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/code": "^4.0.1",
+    "@types/commander": "^2.3.31",
     "@types/get-port": "0.0.4",
     "@types/lab": "^11.1.0",
     "@types/node": "^7.0.0",
@@ -30,6 +31,8 @@
     "typescript": "^2.1.5"
   },
   "dependencies": {
-    "get-port": "^2.1.0"
+    "commander": "^2.9.0",
+    "get-port": "^2.1.0",
+    "micro": "^6.2.0"
   }
 }
