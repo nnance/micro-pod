@@ -21,6 +21,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/code": "^4.0.1",
+    "@types/get-port": "0.0.4",
     "@types/lab": "^11.1.0",
     "@types/node": "^7.0.0",
     "@types/rimraf": "0.0.28",
@@ -29,5 +30,8 @@
     "rimraf": "^2.5.4",
     "tslint": "^4.3.1",
     "typescript": "^2.1.5"
+  },
+  "dependencies": {
+    "get-port": "^2.1.0"
   }
 }
