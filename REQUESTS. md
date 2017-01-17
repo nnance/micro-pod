@@ -1,0 +1,11 @@
+# add route
+
+POST http://localhost:56032 HTTP/1.1
+content-type: application/json
+
+{
+  "module": "graphql-server-micro",
+  "name": "GraphQL",
+  "path": "./node_modules/graphql-server-micro/dist/index.js",
+  "routes": [ { "path": "/grpahql" } ]
+}

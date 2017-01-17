@@ -1,16 +1,5 @@
-import {
-  ConfigChanged,
-  Handler,
-  HandlerType,
-  IConfiguration,
-  IRoute,
-  IService,
-  IServiceRepository,
-  ServiceAdded,
-  ServiceRemoved,
-} from '../types'
-
 import {EventEmitter} from 'events'
+import {IConfiguration} from '../types'
 import {BaseRepository} from './BaseRepository'
 
 export class FileRepository extends BaseRepository {
@@ -25,7 +14,6 @@ export class FileRepository extends BaseRepository {
   public async load(): Promise<IConfiguration> {
     console.log(`loading ${this.filename}`)
     const config = require(this.filename).default
-    console.log('loaded')
     this.config = {
       services: config.services.map((service) => {
         return {
