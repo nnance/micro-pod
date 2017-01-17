@@ -12,6 +12,9 @@
     "test": "lab -S ./dist/test",
     "coverage": "lab -c -S -r console -o stdout -r html -o ./coverage/coverage.html ./dist/test"
   },
+  "bin": {
+    "micro-pod": "./bin/micro-pod.js"
+  },
   "keywords": [
     "micro"
   ],
@@ -24,6 +27,7 @@
     "@types/lab": "^11.1.0",
     "@types/node": "^7.0.0",
     "@types/rimraf": "0.0.28",
+    "@types/rsmq": "^0.3.27",
     "code": "^4.0.0",
     "lab": "^11.2.2",
     "rimraf": "^2.5.4",
@@ -33,6 +37,10 @@
   "dependencies": {
     "commander": "^2.9.0",
     "get-port": "^2.1.0",
-    "micro": "^6.2.0"
+    "micro": "^6.2.0",
+    "rsmq": "^0.7.2"
+  },
+  "typescript": {
+    "definition": "dist/index.d.ts"
   }
 }

@@ -21,7 +21,7 @@ export class MemoryRepository extends BaseRepository {
         module: 'graphql-server-micro',
         name: 'GraphQL',
         path: './node_modules/graphql-server-micro/dist/index.js',
-        routes: [ { path: '/' } ],
+        routes: [ { path: '/grpahql' } ],
       },
     ],
   }
@@ -35,17 +35,5 @@ export class MemoryRepository extends BaseRepository {
 
   public load(): Promise<IConfiguration> {
     return Promise.resolve(this.config)
-  }
-
-  public onServiceAdded(handler: ServiceAdded): Handler[] {
-    return this.addEventHandler(HandlerType.ServiceAdded, handler)
-  }
-
-  public onConfigChanged(handler: ConfigChanged): Handler[] {
-    return this.addEventHandler(HandlerType.ConfigChanged, handler)
-  }
-
-  public onServiceRemoved(handler: ServiceRemoved): Handler[] {
-    return this.addEventHandler(HandlerType.ServiceRemoved, handler)
   }
 }

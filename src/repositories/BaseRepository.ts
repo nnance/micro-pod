@@ -15,9 +15,18 @@ export abstract class BaseRepository implements IServiceRepository {
   protected handlers = {}
 
   public abstract load(): Promise<IConfiguration>
-  public abstract onServiceAdded(handler: ServiceAdded): Handler[]
-  public abstract onConfigChanged(handler: ConfigChanged): Handler[]
-  public abstract onServiceRemoved(handler: ServiceRemoved): Handler[]
+
+  public onServiceAdded(handler: ServiceAdded): Handler[] {
+    return this.addEventHandler(HandlerType.ServiceAdded, handler)
+  }
+
+  public onConfigChanged(handler: ConfigChanged): Handler[] {
+    return this.addEventHandler(HandlerType.ConfigChanged, handler)
+  }
+
+  public onServiceRemoved(handler: ServiceRemoved): Handler[] {
+    return this.addEventHandler(HandlerType.ServiceRemoved, handler)
+  }
 
   protected addEventHandler(type: HandlerType, handler: Handler) {
     if (this.handlers[type]) {
